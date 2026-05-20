@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
+from PIL import Image
 
 
 st.set_page_config(
@@ -130,3 +131,30 @@ if st.button("🔮 Evaluar Cliente"):
         st.error(
             "❌ **Predicción:** El modelo indica que el cliente **NO** realizará una compra el próximo mes."
         )
+
+#  EQUIPO DE TRABAJO
+st.divider()
+st.subheader("👥 Equipo de Proyecto")
+col_team1, col_team2 = st.columns(2)
+
+with col_team1:
+    
+    st.image("imagenes/nico2.jpeg", use_container_width=True)
+    st.markdown(
+        "<div style='text-align: center; font-weight: bold; margin-top: 5px;'>"
+        "Juan Felipe Sánchez Pérez<br>"
+        "<span style='font-weight: normal; color: gray;'>Científico de Datos</span>"
+        "</div>", 
+        unsafe_html=True
+    )
+
+with col_team2:
+    # Carga de la foto de David Nicolas
+    st.image("imagenes/nico.jpeg", use_container_width=True)
+    st.markdown(
+        "<div style='text-align: center; font-weight: bold; margin-top: 5px;'>"
+        "David Nicolas Sotelo Merchán<br>"
+        "<span style='font-weight: normal; color: gray;'>Científico de Datos</span>"
+        "</div>", 
+        unsafe_html=True
+    )
