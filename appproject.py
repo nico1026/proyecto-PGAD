@@ -15,10 +15,12 @@ st.markdown("Análisis de transacciones y clientes.")
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv('DATASET_FINAL_R1.csv')# carga de datos
+    df = pd.read_csv('DATASET_FINAL_R1.csv') # carga de datos
     df['transaction_date'] = pd.to_datetime(df['transaction_date'])
     return df
+
 df = load_data()
+
 if st.checkbox('Mostrar vista previa de los datos'):
     st.subheader('Muestra del Dataset')
     st.write(df.head(10))
@@ -32,6 +34,7 @@ ciudad_seleccionada = st.sidebar.multiselect(
     options=ciudades,
     default=ciudades
 )
+
 # Filtro de Categoría
 categorias = sorted(df['category'].dropna().unique().tolist())
 categoria_seleccionada = st.sidebar.multiselect(
@@ -62,7 +65,7 @@ with col3:
     st.metric("Ticket Promedio", f"${promedio:,.2f}")
 
 with col4:
-    # Cantidad de productos distintos en la selección
+    
     productos_distintos = df_filtrado['category'].nunique()
     st.metric("Categorías Vistas", productos_distintos)
 
@@ -75,3 +78,55 @@ if not df_filtrado.empty:
 else:
     st.warning("No hay datos para mostrar con los filtros seleccionados.")
 
+# SECCIÓN: PREDICCIÓN DE COMPRA (MODELO DE REGRESIÓN LOGÍSTICA)
+st.divider()
+st.subheader("🔮 Predicción de Recompra para el Próximo Mes")
+st.markdown(
+    "Nuestro modelo de regresión logística "
+    "para evaluar si un cliente volverá a comprar el próximo mes según sus hábitos."
+)
+
+col_input1, col_input2 = st.columns(2)
+
+with col_input1:  
+    input_loyalty = st.slider(
+        "Puntaje de Lealtad del Cliente (Loyalty Score):",
+        min_value=0.0,
+        max_value=100.0,
+        value=50.0,
+        step=0.5
+    )
+
+with col_input2:
+    input_amount = st.number_input(
+        "Monto de la Compra Actual (Total Amount en $):",
+        min_value=0.0,
+        value=100.0,
+        step=5.0
+    )
+
+
+if st.button("🔮 Evaluar Cliente"):
+    # Coeficientes extraídos del ANALISSS del modelo en R
+    B0 = -14.7088730  # Intercept
+    B1 = 0.2312211   # Coeficiente de loyalty_score
+    B2 = 0.0028711   # Coeficiente de total_amount
+    
+    #ECUACCNN 
+    z = B0 + (B1 * input_loyalty) + (B2 * input_amount)
+    
+    # Obtener probabilidad
+    probabilidad = 1 / (1 + np.exp(-z))
+    
+    st.markdown("---")
+    st.markdown(f"### **Probabilidad estimada de recompra:** `{probabilidad * 100:.2f}%`")
+    
+    # Clasificación según el umbral 
+    if probabilidad >= 0.5:
+        st.success(
+            "✅ **Predicción:** El modelo indica que el cliente **SÍ** realizará una compra el próximo mes."
+        )
+    else:
+        st.error(
+            "❌ **Predicción:** El modelo indica que el cliente **NO** realizará una compra el próximo mes."
+        )
