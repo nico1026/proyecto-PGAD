@@ -135,6 +135,8 @@ if st.button("🔮 Evaluar Cliente"):
 #  EQUIPO DE TRABAJO
 st.divider()
 st.subheader("👥 Equipo de Proyecto")
+
+
 col_team1, col_team2 = st.columns(2)
 
 with col_team1:
@@ -145,16 +147,15 @@ with col_team1:
         "Juan Felipe Sánchez Pérez<br>"
         "<span style='font-weight: normal; color: gray;'>Científico de Datos</span>"
         "</div>", 
-        unsafe_html=True
+        unsafe_allow_html=True  # <--- Corregido aquí
     )
 
-with col_team2:
-    # Carga de la foto de David Nicolas
+with col_team2:   
     st.image("imagenes/nico.jpeg", use_container_width=True)
     st.markdown(
         "<div style='text-align: center; font-weight: bold; margin-top: 5px;'>"
         "David Nicolas Sotelo Merchán<br>"
         "<span style='font-weight: normal; color: gray;'>Científico de Datos</span>"
         "</div>", 
-        unsafe_html=True
+        unsafe_allow_html=True  # <--- Corregido aquí
     )
