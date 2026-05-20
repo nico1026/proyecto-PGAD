@@ -11,7 +11,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("🚀 Juan Felipe Sanchez || David Nicolas Sotelo")
+st.title(" blue[Juan Felipe Sanchez] || green[David Nicolas Sotelo]", text_alignment="center")
 st.markdown("Análisis de transacciones y clientes.")
 
 @st.cache_data
