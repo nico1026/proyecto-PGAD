@@ -141,7 +141,7 @@ col_team1, col_team2 = st.columns(2)
 
 with col_team1:
     
-    st.image("imagenes/nico2.jpeg", use_container_width=True)
+    st.image("imagenes/nico2.jpeg", width=250)
     st.markdown(
         "<div style='text-align: center; font-weight: bold; margin-top: 5px;'>"
         "Juan Felipe Sánchez Pérez<br>"
@@ -151,7 +151,7 @@ with col_team1:
     )
 
 with col_team2:   
-    st.image("imagenes/nico.jpeg", use_container_width=True)
+    st.image("imagenes/nico.jpeg", width=250)
     st.markdown(
         "<div style='text-align: center; font-weight: bold; margin-top: 5px;'>"
         "David Nicolas Sotelo Merchán<br>"
