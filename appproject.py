@@ -139,23 +139,27 @@ st.subheader("👥 Equipo de Proyecto")
 
 col_team1, col_team2 = st.columns(2)
 
-with col_team1:
-    
-    st.image("imagenes/nico2.jpeg", width=250)
+with col_team1:    
+
     st.markdown(
-        "<div style='text-align: center; font-weight: bold; margin-top: 5px;'>"
+        "<div style='display: flex; flex-direction: column; align-items: center; text-align: center;'>"
+        "<img src='app/imagenes/juan.jpeg' width='250' style='border-radius: 10px;'>"
+        "<div style='font-weight: bold; margin-top: 10px;'>"
         "Juan Felipe Sánchez Pérez<br>"
         "<span style='font-weight: normal; color: gray;'>Científico de Datos</span>"
+        "</div>"
         "</div>", 
-        unsafe_allow_html=True  # <--- Corregido aquí
+        unsafe_allow_html=True
     )
 
-with col_team2:   
-    st.image("imagenes/nico.jpeg", width=250)
+with col_team2:      
     st.markdown(
-        "<div style='text-align: center; font-weight: bold; margin-top: 5px;'>"
+        "<div style='display: flex; flex-direction: column; align-items: center; text-align: center;'>"
+        "<img src='app/imagenes/nico.jpeg' width='250' style='border-radius: 10px;'>"
+        "<div style='font-weight: bold; margin-top: 10px;'>"
         "David Nicolas Sotelo Merchán<br>"
         "<span style='font-weight: normal; color: gray;'>Científico de Datos</span>"
+        "</div>"
         "</div>", 
-        unsafe_allow_html=True  # <--- Corregido aquí
+        unsafe_allow_html=True
     )
