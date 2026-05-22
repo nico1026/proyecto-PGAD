@@ -63,12 +63,12 @@ with col2:
 
 with col3:
     promedio = df_filtrado['total_amount'].mean() if not df_filtrado.empty else 0
-    st.metric("Ticket Promedio", f"${promedio:,.2f}")
+    st.metric("Compra promedio", f"${promedio:,.2f}")
 
 with col4:
     
     productos_distintos = df_filtrado['category'].nunique()
-    st.metric("Categorías Vistas", productos_distintos)
+    st.metric("Categorías", productos_distintos)
 
 st.divider()
 
