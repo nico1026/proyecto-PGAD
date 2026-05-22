@@ -132,36 +132,4 @@ if st.button("🔮 Evaluar Cliente"):
             "❌ **Predicción:** El modelo indica que el cliente **NO** realizará una compra el próximo mes."
         )
 
-#  EQUIPO DE TRABAJO
-st.divider()
-st.subheader("👥 Equipo de Proyecto")
 
-
-col_team1, col_team2 = st.columns(2)
-
-with col_team1:
-    sub_col1, sub_col2, sub_col3 = st.columns([1, 2, 1])
-    with sub_col2:
-        st.image("imagenes/nico2.jpeg", width=220)
-    
-
-    st.markdown(
-        "<div style='text-align: center; font-weight: bold; margin-top: 5px;'>"
-        "Juan Felipe Sánchez Pérez<br>"
-        "<span style='font-weight: normal; color: gray;'>Científico de Datos</span>"
-        "</div>", 
-        unsafe_allow_html=True
-    )
-
-with col_team2:
-    sub_col4, sub_col5, sub_col6 = st.columns([1, 2, 1])
-    with sub_col5:
-        st.image("imagenes/nico.jpeg", width=220)
-
-    st.markdown(
-        "<div style='text-align: center; font-weight: bold; margin-top: 5px;'>"
-        "David Nicolas Sotelo Merchán<br>"
-        "<span style='font-weight: normal; color: gray;'>Científico de Datos</span>"
-        "</div>", 
-        unsafe_allow_html=True
-    )
